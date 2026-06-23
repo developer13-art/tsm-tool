@@ -1,0 +1,9 @@
+# TSM Pro Local Agent — Python dependencies
+# Install: pip install -r requirements.txt
+
+requests>=2.31.0       # HTTP client for TSM Pro API
+pyusb>=1.2.1           # Low-level USB: MTK BROM + Qualcomm EDL detection
+pyserial>=3.5          # Serial port access (fallback COM port detection)
+
+# Windows only (auto-used when running on Windows)
+# pywin32>=306          # WMI USB device enumeration — optional, install if pyusb fails
