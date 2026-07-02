@@ -1,0 +1,138 @@
+You are an expert full-stack developer. Build a COMPLETE, FULLY FUNCTIONAL web application called "TSM Pro" (Terminal System Manager) that manages Android devices and removes security/MDM packages WITHOUT requiring USB debugging.
+
+## CORE REQUIREMENTS
+
+1. **Working Authentication System**
+   - Login/Logout with sessions
+   - Admin registration page
+   - Password hashing with bcrypt
+   - Role-based access (admin/technician)
+   - Session management with timeout
+
+2. **Complete Dashboard with Tabs**
+   - Devices tab: List, add, scan, reboot devices
+   - MDM Removal tab: Select device + package, remove
+   - Jobs tab: View all jobs with status
+   - Console tab: Real-time log output
+   - Users tab: Admin user management (CRUD)
+
+3. **Database with ALL tables**
+   - users, agents, devices, device_database, jobs, job_logs, mdm_packages, activity_log, sessions
+   - Include seed data for 50+ device models (Tecno, Samsung, Xiaomi, Infinix, etc.)
+   - Include 20+ MDM package signatures
+
+4. **Device Management**
+   - Manual device registration form
+   - Device scan (simulated with sample devices)
+   - Reboot to different modes (normal, fastboot, recovery, edl)
+   - Device mode tracking
+   - Bootloader status tracking
+
+5. **MDM Removal System**
+   - Package selection dropdown with known MDM packages
+   - Device selection dropdown
+   - Job creation and tracking
+   - Simulated removal with progress logs
+   - Support for all chipset protocols
+
+6. **Python Local Agent**
+   - Complete agent that polls server for jobs
+   - Protocol handlers: Fastboot, Qualcomm EDL, MediaTek, Samsung, Universal
+   - Device detection in all modes
+   - Real log reporting to server
+
+7. **User Interface**
+   - Dark theme, professional design
+   - Responsive layout
+   - Navigation sidebar
+   - Stats cards at top
+   - Real-time console with colored output
+   - Form validation
+   - Success/error messages
+
+## TECHNICAL SPECIFICATIONS
+
+### Frontend
+- Single-file PHP with embedded CSS (no framework dependencies)
+- Vanilla JavaScript for interactivity
+- Font Awesome icons via CDN
+- Dark theme matching the provided styles
+- Tab-based navigation
+
+### Backend (PHP)
+- PDO database connection (singleton pattern)
+- Session-based authentication
+- RESTful API endpoints
+- Proper error handling
+- Input sanitization
+- Prepared statements
+
+### Database (MySQL)
+- All tables with proper indexes
+- Foreign key constraints
+- Seed data for devices and MDM packages
+- UTF-8mb4 character set
+
+### Python Agent
+- Object-oriented protocol handlers
+- USB device detection
+- Command execution with timeout
+- HTTP polling for jobs
+- Log reporting to server
+
+## FILE LIST (Create ALL files)
+
+1. includes/config.php
+2. includes/Database.php
+3. includes/Auth.php
+4. includes/DeviceManager.php
+5. includes/ChipsetDetector.php
+6. api/auth.php
+7. api/devices.php
+8. api/jobs.php
+9. api/logs.php
+10. api/agent.php
+11. login.php
+12. register.php
+13. dashboard.php (ALL features in one file)
+14. device-connect.php
+15. setup.php
+16. logout.php
+17. index.php
+18. sql/full_schema.sql
+19. agent/tsm_agent.py
+20. agent/protocols/__init__.py
+21. agent/protocols/base.py
+22. agent/protocols/fastboot.py
+23. agent/protocols/qualcomm.py
+24. agent/protocols/mediatek.py
+25. agent/protocols/samsung.py
+26. agent/protocols/universal.py
+27. agent/config.json
+28. agent/chipset_db.json
+29. agent/requirements.txt
+30. .htaccess
+
+## CRITICAL RULES
+
+- EVERYTHING must be FULLY FUNCTIONAL - no placeholders
+- ALL buttons must do something
+- ALL forms must submit and process
+- The dashboard must show real data from the database
+- MDM removal must create jobs and show logs
+- Device scan must populate the database
+- Error handling everywhere
+- No broken links or missing pages
+- The console must show real-time updates
+
+## TEST SCENARIO
+After building, the app should:
+1. Setup database → Create admin → Login → See dashboard
+2. Click "Scan Devices" → See 3 devices appear
+3. Go to MDM Removal → Select device → Select package → Remove
+4. See job appear in Jobs tab
+5. See logs in Console tab
+6. Create new user from Users tab
+7. Logout and login with new user
+
+Build the COMPLETE application now. Every file must be complete and working.
